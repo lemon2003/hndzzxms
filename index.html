@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>单招咨询系统 - 登录注册</title>
+<link href="common.css" rel="stylesheet" type="text/css"/>
+<link href="shuiyin.css" rel="stylesheet" type="text/css"/>
+<style>
+        /* 登录注册区域样式 */
+        .auth-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .auth-tab.active {
+            color: #2c5282;
+            border-bottom: 2px solid #2c5282;
+            font-weight: bold;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #2c5282;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #2c5282;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1e3a5f;
+        }
+
+        .error-tip {
+            color: #ff4d4f;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* 新增提示框样式（复用shouye的alert逻辑，不影响原有样式） */
+        .alert {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: none;
+        }
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .auth-container {
+                margin: 30px auto;
+                padding: 20px;
+            }
+        }
+    </style>
+<!-- 引入Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.38.4/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+<div class="watermark"></div>
+<!-- 导航栏 -->
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="shouye.html">首<br/>页</a></li>
+<li><a href="yuanxiao.html">河南单招<br/>院校大全</a></li>
+<li><a href="zhuanye.html">根据专业<br/>选院校</a></li>
+<li><a href="chengji.html">根据成绩<br/>选院校</a></li>
+<li><a href="us.html">关于<br/>我们</a></li>
+</ul>
+</div>
+</header>
+<!-- 登录注册核心区域 -->
+<section class="container">
+<div class="auth-container">
+<!-- 切换标签 -->
+<div class="auth-tabs">
+<div class="auth-tab active" data-tab="login">登录</div>
+<div class="auth-tab" data-tab="register">注册</div>
+</div>
+<!-- 登录表单 -->
+<form class="auth-form active" id="loginForm">
+<div class="form-group">
+<label for="loginName">姓名</label>
+<input id="loginName" placeholder="请输入您的姓名" required="" type="text"/>
+<div class="error-tip" id="loginNameError">姓名不能为空</div>
+</div>
+<div class="form-group">
+<label for="loginPhone">手机号码</label>
+<input id="loginPhone" placeholder="请输入您的手机号码" required="" type="tel"/>
+<div class="error-tip" id="loginPhoneError">请输入正确的手机号码</div>
+</div>
+<button class="submit-btn" type="submit">登录</button>
+<!-- 新增登录提示框 -->
+<div class="alert" id="loginAlert"></div>
+</form>
+<!-- 注册表单 -->
+<form class="auth-form" id="registerForm">
+<div class="form-group">
+<label for="registerName">姓名</label>
+<input id="registerName" placeholder="请输入您的姓名" required="" type="text"/>
+<div class="error-tip" id="registerNameError">姓名不能为空</div>
+</div>
+<div class="form-group">
+<label for="registerPhone">手机号码</label>
+<input id="registerPhone" placeholder="请输入您的手机号码" required="" type="tel"/>
+<div class="error-tip" id="registerPhoneError">请输入正确的手机号码</div>
+</div>
+<button class="submit-btn" type="submit">注册</button>
+<!-- 新增注册提示框 -->
+<div class="alert" id="registerAlert"></div>
+</form>
+</div>
+</section>
+<!-- 页脚（复用原有样式） -->
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：陈老师:16691532229 <br/>赵老师:18790463281 </p>
+<p>信阳校区地址：信阳师范东门金色童年院内<br/>光山地址：光山老汽车站进站口2楼铭书教育<br/>新县地址：新县二高正对面	<br/>息县地址：息县二高校门口<br/>罗山地址：罗山高级中学对面<br/>潢川地址：滨河北路与迎宾路交叉口西	</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+<script>
+        // 页面加载时检查登录状态
+        document.addEventListener('DOMContentLoaded', function() {
+            // 如果用户已登录，直接跳转到首页
+            if (localStorage.getItem('userLoginStatus') === 'true') {
+                window.location.href = 'shouye.html';
+            }
+        });
+
+        // 初始化 Supabase
+        const SUPABASE_URL = 'https://obmcgsfazphdteydgyak.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ibWNnc2ZhenBoZHRleWRneWFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAyNDM4MDUsImV4cCI6MjA4NTgxOTgwNX0.9p93bsDBy_7bnegPUOQqzq0EgwMuKTaL8qoyFx6Oaww';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+            global: { fetch: (url, options = {}) => { options.credentials = 'omit'; return fetch(url, options); } }
+        });
+
+        // 标签切换逻辑
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // 移除所有active类
+                authTabs.forEach(t => t.classList.remove('active'));
+                authForms.forEach(f => f.classList.remove('active'));
+
+                // 给当前标签和对应表单添加active类
+                tab.classList.add('active');
+                const targetTab = tab.getAttribute('data-tab');
+                document.querySelector(`#${targetTab}Form`).classList.add('active');
+            });
+        });
+
+        // 手机号码验证规则
+        function isValidPhone(phone) {
+            const reg = /^1[3-9]\d{9}$/;
+            return reg.test(phone);
+        }
+
+        // 登录表单提交
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('loginName').value.trim();
+            const phone = document.getElementById('loginPhone').value.trim();
+            const loginAlert = document.getElementById('loginAlert');
+            let isValid = true;
+
+            // 前端验证
+            if (!name) {
+                document.getElementById('loginNameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('loginNameError').style.display = 'none';
+            }
+            if (!isValidPhone(phone)) {
+                document.getElementById('loginPhoneError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('loginPhoneError').style.display = 'none';
+            }
+
+            if (!isValid) return;
+
+            try {
+                // 调用Supabase查询用户
+                const { data, error } = await supabase.from('user_info')
+                    .select('*')
+                    .eq('phone', phone)
+                    .eq('name', name)
+                    .single();
+
+                if (error) {
+                    loginAlert.className = 'alert alert-danger';
+                    loginAlert.textContent = error.code === 'PGRST116' ? '姓名或手机号错误' : `登录失败：${error.message}`;
+                    loginAlert.style.display = 'block';
+                    return;
+                }
+
+                // 登录成功
+                localStorage.setItem('userLoginStatus', 'true');
+                localStorage.setItem('userName', data.name);
+                loginAlert.className = 'alert alert-success';
+                loginAlert.textContent = `登录成功！欢迎 ${data.name}，即将跳转到单招咨询页面...`;
+                loginAlert.style.display = 'block';
+
+                // 重置表单并跳转
+                loginForm.reset();
+                setTimeout(() => { window.location.href = 'shouye.html'; }, 1500);
+
+            } catch (err) {
+                loginAlert.className = 'alert alert-danger';
+                loginAlert.textContent = `网络错误：${err.message}`;
+                loginAlert.style.display = 'block';
+            }
+        });
+
+        // 注册表单提交
+        const registerForm = document.getElementById('registerForm');
+        registerForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('registerName').value.trim();
+            const phone = document.getElementById('registerPhone').value.trim();
+            const registerAlert = document.getElementById('registerAlert');
+            let isValid = true;
+
+            // 前端验证
+            if (!name) {
+                document.getElementById('registerNameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('registerNameError').style.display = 'none';
+            }
+            if (!isValidPhone(phone)) {
+                document.getElementById('registerPhoneError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('registerPhoneError').style.display = 'none';
+            }
+
+            if (!isValid) return;
+
+            try {
+                // 调用Supabase插入用户
+                const { data, error } = await supabase.from('user_info')
+                    .insert([{ name, phone }])
+                    .select();
+
+                if (error) {
+                    registerAlert.className = 'alert alert-danger';
+                    registerAlert.textContent = error.message.includes('unique constraint') ? '该手机号已注册' : `注册失败：${error.message}`;
+                    registerAlert.style.display = 'block';
+                    return;
+                }
+
+                // 注册成功
+                localStorage.setItem('userLoginStatus', 'true');
+                localStorage.setItem('userName', name);
+                registerAlert.className = 'alert alert-success';
+                registerAlert.textContent = '注册成功！即将跳转到单招咨询页面...';
+                registerAlert.style.display = 'block';
+
+                // 重置表单并跳转
+                registerForm.reset();
+                setTimeout(() => { window.location.href = 'shouye.html'; }, 1500);
+
+            } catch (err) {
+                registerAlert.className = 'alert alert-danger';
+                registerAlert.textContent = `网络错误：${err.message}`;
+                registerAlert.style.display = 'block';
+            }
+        });
+
+        // 输入框实时验证
+        const phoneInputs = [document.getElementById('loginPhone'), document.getElementById('registerPhone')];
+        const nameInputs = [document.getElementById('loginName'), document.getElementById('registerName')];
+
+        nameInputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                const errorEl = document.getElementById(`${input.id}Error`);
+                if (!input.value.trim()) {
+                    errorEl.style.display = 'block';
+                } else {
+                    errorEl.style.display = 'none';
+                }
+            });
+        });
+
+        phoneInputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                const errorEl = document.getElementById(`${input.id}Error`);
+                if (!isValidPhone(input.value.trim())) {
+                    errorEl.style.display = 'block';
+                } else {
+                    errorEl.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
