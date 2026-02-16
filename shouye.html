@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>单招咨询系统 - 首页</title>
+<link href="common.css" rel="stylesheet" type="text/css"/>
+<link href="shuiyin.css" rel="stylesheet" type="text/css"/>
+<style>
+
+        /* Banner区域 */
+        .banner {
+            background-color: #2c5282;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* 核心内容区 */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #2c5282;
+            border-left: 4px solid #2c5282;
+            padding-left: 10px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #2c5282;
+        }
+
+        .card ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .card ul li a:hover {
+            color: #2c5282;
+            text-decoration: underline;
+        }
+
+
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .banner h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+<!-- 引入登录检查脚本 -->
+<script src="auth.js"></script>
+</head>
+<body>
+<div class="watermark"></div>
+<!-- 导航栏 -->
+<!-- 导航栏 -->
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="shouye.html">首<br/>页</a></li>
+<li><a href="yuanxiao.html">河南单招<br/>院校大全</a></li>
+<li><a href="zhuanye.html">根据专业<br/>选院校</a></li>
+<li><a href="chengji.html">根据成绩<br/>选院校</a></li>
+<li><a href="us.html">关于<br/>我们</a></li>
+</ul>
+<!-- 用户信息区域（由auth.js动态填充） -->
+</div>
+</header>
+<!-- Banner区域 -->
+<section class="banner">
+<div class="container">
+<h1>单招咨询服务平台 <br/> 免费规划·单招上岸</h1>
+<h3>详细咨询：陈老师:16691532229 赵老师:18790463281<br/>（微信手机同号）</h3>
+<p>为单招考生提供最新政策、院校信息、报考指导等全方位咨询服务</p>
+</div>
+</section>
+<!-- 核心内容区 -->
+<section class="main-content container">
+<!-- 热门资讯 -->
+<h2 class="section-title">热门资讯</h2>
+<div class="content-grid">
+<div class="card">
+<h3>最新政策</h3>
+<ul>
+<li><a href="shouye1.html">单招--升学新选择</a></li>
+<li><a href="shouye2.html">2025年郑州市人民政府发布的单招公告</a></li>
+<li><a href="shouye3.html">单招、统招、高职单招，差别到底在哪里？</a></li>
+<li><a href="shouye4.html">高职高专热门专业就业数据</a></li>
+</ul>
+</div>
+<div class="card">
+<h3>院校推荐</h3>
+<ul>
+<li><a href="html/12.html">黄河水利职业技术学院</a></li>
+<li><a href="html/7.html">郑州铁路职业技术学院</a></li>
+<li><a href="html/40.html">河南农业职业学院</a></li>
+<li><a href="html/2.html">河南职业技术学院</a></li>
+</ul>
+</div>
+<div class="card">
+<h3>报考指南</h3>
+<ul>
+<li><a href="shouye5.html">教育部发布2025年高考【十问十答】</a></li>
+<li><a href="shouye6.html">河南省2026年普通高校招生体检工作有关事宜通知</a></li>
+<li><a href="shouye7.html">河南省教育厅关于2025年高职单招和技能拔尖人才免试入学工作的通知</a></li>
+<li><a href="shouye8.html">河南省2026年普通高校专升本和对口招生院校招生章程查询</a></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 页脚（复用原有样式） -->
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：陈老师:16691532229 <br/>赵老师:18790463281 </p>
+<p>信阳校区地址：信阳师范东门金色童年院内<br/>光山地址：光山老汽车站进站口2楼铭书教育<br/>新县地址：新县二高正对面	<br/>息县地址：息县二高校门口<br/>罗山地址：罗山高级中学对面<br/>潢川地址：滨河北路与迎宾路交叉口西	</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>河南省2026年普通高校专升本和对口招生章程查询 - 河南铭书教育单招咨询</title>
+<!-- 引入公共样式 -->
+<link href="common.css" rel="stylesheet"/>
+<link href="shuiyin.css" rel="stylesheet" type="text/css"/>
+<!-- 本页面专属样式 -->
+<style>
+        /* 页面主体样式 */
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* 内容容器 */
+        .notice-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding-bottom: 50px;
+        }
+
+        /* 通知标题 */
+        .notice-title {
+            font-size: 28px;
+            color: #2c5282;
+            text-align: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #2c5282;
+        }
+
+        /* 发布日期和来源 */
+        .notice-meta {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .notice-source {
+            color: #888;
+            font-size: 13px;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        /* 重要通知栏 */
+        .important-alert {
+            background-color: #e6f7ff;
+            border: 2px solid #91d5ff;
+            padding: 20px 25px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(145, 213, 255, 0.1);
+        }
+
+        .important-alert h3 {
+            color: #1890ff;
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .important-alert h3:before {
+            content: "📢";
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        /* 通知内容区块 */
+        .notice-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        /* 章节标题 */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c5282;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* 附件列表样式 */
+        .attachment-list {
+            background-color: #f0f9ff;
+            border: 1px solid #bae7ff;
+            padding: 25px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+
+        .attachment-list h4 {
+            color: #1890ff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .attachment-item {
+            background-color: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            padding-left: 60px;
+            min-height: 80px;
+        }
+
+        .attachment-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .attachment-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background-color: #1890ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .attachment-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c5282;
+            margin-bottom: 8px;
+        }
+
+        .attachment-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .attachment-link {
+            display: inline-block;
+            background-color: #1890ff;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .attachment-link:hover {
+            background-color: #096dd9;
+        }
+
+        /* 查询指引 */
+        .query-guide {
+            background-color: #f6ffed;
+            border: 1px solid #b7eb8f;
+            padding: 25px;
+            border-radius: 6px;
+            margin: 25px 0;
+        }
+
+        .query-guide h4 {
+            color: #52c41a;
+            margin-bottom: 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .query-guide h4:before {
+            content: "💡";
+            margin-right: 10px;
+        }
+
+        .query-steps {
+            margin-left: 20px;
+            padding-left: 10px;
+        }
+
+        .query-steps li {
+            margin-bottom: 12px;
+            list-style-type: decimal;
+            line-height: 1.6;
+        }
+
+        /* 联系方式区域 */
+        .contact-section {
+            background-color: #fff;
+            border-top: 3px solid #2c5282;
+            padding: 25px;
+            margin-top: 40px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .contact-section h3 {
+            color: #2c5282;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .contact-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* 原文链接 */
+        .original-link {
+            margin-top: 30px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .original-link a {
+            color: #1890ff;
+            text-decoration: none;
+        }
+
+        .original-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* 免责声明 */
+        .disclaimer {
+            background-color: #fff8f8;
+            border: 1px solid #ffd1d1;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .disclaimer h4 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .notice-title {
+                font-size: 22px;
+            }
+
+            .notice-content {
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+
+            .attachment-item {
+                padding-left: 20px;
+                padding-top: 50px;
+            }
+
+            .attachment-icon {
+                top: 20px;
+                left: 20px;
+                transform: none;
+            }
+        }
+    </style>
+<!-- 引入登录检查脚本 -->
+<script src="auth.js"></script>
+</head>
+<body>
+<div class="watermark"></div>
+<!-- 导航栏 -->
+<header>
+<div class="container nav">
+<div class="logo">河南铭书教育单招咨询</div>
+<ul class="nav-menu">
+<li><a href="shouye.html">首<br/>页</a></li>
+<li><a href="yuanxiao.html">河南单招<br/>院校大全</a></li>
+<li><a href="zhuanye.html">根据专业<br/>选院校</a></li>
+<li><a href="chengji.html">根据成绩<br/>选院校</a></li>
+<li><a href="us.html">关于<br/>我们</a></li>
+</ul>
+<!-- 用户信息区域（由auth.js动态填充） -->
+</div>
+</header>
+<!-- 通知内容区域 -->
+<div class="notice-container">
+<h1 class="notice-title">河南省2026年普通高校专升本和对口招生院校招生章程查询</h1>
+<div class="notice-meta">
+<div>发布机构：河南省教育考试院</div>
+<div>发布日期：2026年2月3日 16:38</div>
+<div class="notice-source">来源：河南省教育厅重点领域信息公开专栏</div>
+</div>
+<div class="important-alert">
+<h3>重要通知</h3>
+<p>2026年河南省普通高校专升本和对口招生院校招生章程现已核定并公布。请考生按照以下指引查询相关招生章程，为报考做好充分准备。</p>
+</div>
+<div class="notice-content">
+<p style="margin-bottom: 25px; font-size: 16px;">按照《河南省教育厅 河南省退役军人事务厅河南省军区动员局关于做好2026年普通高等学校专升本考试招生工作的通知》和《河南省教育厅关于做好2026年普通高等学校对口招收中等职业学校毕业生工作的通知》要求，专升本和对口招生相关高校招生章程经省教育厅核定后向社会发布。</p>
+<p style="margin-bottom: 25px; font-size: 16px;">考生可登录附表中的对应网址进行查询，也可直接登录高校官方网站或拨打高校招生咨询电话进行咨询。</p>
+<h2 class="section-title">查询方式</h2>
+<div class="query-guide">
+<h4>考生可通过以下方式查询招生章程：</h4>
+<ol class="query-steps">
+<li><strong>官方网站查询：</strong>通过本页面附件中的链接直接访问各院校招生章程查询页面</li>
+<li><strong>高校官网查询：</strong>直接登录目标高校的官方网站，在招生信息栏目中查找</li>
+<li><strong>电话咨询：</strong>拨打高校招生办公室的咨询电话进行查询</li>
+<li><strong>现场咨询：</strong>前往高校招生办公室进行现场咨询（建议提前电话预约）</li>
+</ol>
+</div>
+<h2 class="section-title">招生章程附件查询</h2>
+<div class="attachment-list">
+<h4>点击下方对应附件查看详细招生章程</h4>
+<div class="attachment-item">
+<div class="attachment-icon">01</div>
+<div class="attachment-title">附件1：河南省2026年普通高校专升本招生院校章程查询</div>
+<div class="attachment-description">包含2026年河南省所有普通高校专升本招生院校的招生章程查询链接和相关信息。</div>
+<a class="attachment-link" href="https://jyt.henan.gov.cn/2026/02-03/3321377.html" target="_blank">查看附件详情</a>
+</div>
+<div class="attachment-item">
+<div class="attachment-icon">02</div>
+<div class="attachment-title">附件2：河南省2026年普通高校对口招生院校章程查询（本科）</div>
+<div class="attachment-description">包含2026年河南省普通高校对口招收中等职业学校毕业生（本科层次）的招生章程查询。</div>
+<a class="attachment-link" href="https://jyt.henan.gov.cn/2026/02-03/3321377.html" target="_blank">查看附件详情</a>
+</div>
+<div class="attachment-item">
+<div class="attachment-icon">03</div>
+<div class="attachment-title">附件3：河南省2026年普通高校对口招生院校章程查询（专科）</div>
+<div class="attachment-description">包含2026年河南省普通高校对口招收中等职业学校毕业生（专科层次）的招生章程查询。</div>
+<a class="attachment-link" href="https://jyt.henan.gov.cn/2026/02-03/3321377.html" target="_blank">查看附件详情</a>
+</div>
+</div>
+<div class="query-guide">
+<h4>查询注意事项</h4>
+<ul class="query-steps">
+<li><strong>及时查询：</strong>建议考生在报考前及时查询目标院校的最新招生章程</li>
+<li><strong>仔细阅读：</strong>认真阅读招生章程中的各项规定，特别是报考条件、考试科目、录取规则等重要信息</li>
+<li><strong>核实信息：</strong>对于不确定的信息，建议通过官方渠道（官网、官方电话）进行核实</li>
+<li><strong>关注更新：</strong>关注招生章程的更新和补充通知，以免错过重要信息</li>
+<li><strong>备份保存：</strong>建议下载或保存重要的招生信息，便于随时查阅</li>
+</ul>
+</div>
+<div class="contact-section">
+<h3>联系方式</h3>
+<div class="contact-info">
+<p><strong>主办单位：</strong>河南省教育厅</p>
+<p><strong>执行机构：</strong>河南省教育考试院</p>
+<p><strong>地址：</strong>郑州市郑东新区正光路11号</p>
+<p><strong>邮政编码：</strong>450018</p>
+<p><strong>网站备案：</strong>豫ICP备0911211号</p>
+<p style="margin-top: 15px; font-style: italic;">如需了解更多详细信息，请访问河南省教育厅官方网站或联系相关高校招生办公室。</p>
+</div>
+</div>
+<div class="original-link">
+<p><strong>官方原文链接：</strong><a href="https://jyt.henan.gov.cn/2026/02-03/3321377.html" target="_blank">河南省教育厅官方网站通知原文</a></p>
+<p style="margin-top: 10px; font-size: 13px;">版权所有：河南省教育厅 © 2026 jyt.henan.gov.cn All Rights Reserved</p>
+</div>
+</div>
+<div class="disclaimer">
+<h4>重要声明</h4>
+<p>1. 本页面内容来源于河南省教育厅官方网站，河南铭书教育仅提供信息查询和转载服务。</p>
+<p>2. 招生政策和招生章程如有变动，请以河南省教育厅、河南省教育考试院官方发布的最新信息为准。</p>
+<p>3. 建议考生通过官方渠道核实所有招生信息，避免因信息不准确影响报考。</p>
+<p>4. 对于链接内容的使用，请遵守相关版权规定，未经授权不得转载、链接或以其他方式复制发表。</p>
+</div>
+</div>
+<!-- 页脚 -->
+ <!-- 页脚（复用原有样式） -->
+<footer>
+<div class="container footer-info">
+<p>单招咨询系统 河南铭书教育专用网站<br/>详细咨询：陈老师:16691532229 <br/>赵老师:18790463281 </p>
+<p>信阳校区地址：信阳师范东门金色童年院内<br/>光山地址：光山老汽车站进站口2楼铭书教育<br/>新县地址：新县二高正对面	<br/>息县地址：息县二高校门口<br/>罗山地址：罗山高级中学对面<br/>潢川地址：滨河北路与迎宾路交叉口西	</p>
+<p style="margin-top: 10px; font-size: 12px;">本系统仅提供咨询服务，最终政策以教育考试院公布为准</p>
+</div>
+</footer>
+</body>
+</html>
